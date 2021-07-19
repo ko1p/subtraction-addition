@@ -1,0 +1,21 @@
+.input {
+    outline: 1px solid grey;
+    margin: 5px 0;
+    max-width: 300px;
+    width: 70%;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+.input_correct {
+    outline: 1px solid green;
+}
+
+.input_incorrect {
+    outline: 1px solid red;
+}
+
+.counting {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+}

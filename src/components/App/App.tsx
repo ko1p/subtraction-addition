@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import styles from './App.module.css';
-import CountingList from '../СountingList/СountingList';
+import CountingList from '../CountingList/CountingList';
 import Login from '../Login/Login';
 import { PageNotFound } from '../PageNotFound/PageNotFound';
 
@@ -16,7 +16,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" exact><Login /></Route>
           <Route path="/counting" exact><CountingList /></Route>
-          <Route path="*" component={PageNotFound}></Route>
+          <Route path="*" component={PageNotFound} />
         </Switch>
       </Router>
     </div>

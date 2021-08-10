@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
-import styles from "./СountingList.module.css";
-import { Сounting } from "../Сounting/Сounting";
+import styles from "./CountingList.module.css";
+import { Counting } from "../Counting/Counting";
 import { Results } from "../Results/Results";
 import { calcExamples } from "../../utils/calculations";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ import { setCorrectAnswers, setIncorrectAnswers, setIsResultsShowed, setIsResult
 
 import { ICalculationList, ILoginState, ICalculationsState, IResultsState } from "../../interfaces";
 
-const СountingList: React.FC= () => {
+const CountingList: React.FC= () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const login = useSelector((state: ILoginState) => state.login.login); 
@@ -67,7 +67,7 @@ const СountingList: React.FC= () => {
         Решите и укажите ответы для каждого из 10 примеров.
       </p>
       {calculations.map((item, index) => (
-        <Сounting key={`counting-${index}`} data={item} />
+        <Counting key={`counting-${index}`} data={item} />
       ))}
       <button className={styles.button} onClick={userAnswerChecker}>
         Далее
@@ -80,4 +80,4 @@ const СountingList: React.FC= () => {
   );
 };
 
-export default СountingList;
+export default CountingList;

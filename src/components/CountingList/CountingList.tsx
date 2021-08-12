@@ -3,14 +3,14 @@ import {useHistory} from "react-router";
 import styles from "./CountingList.module.css";
 import {Counting} from "../Counting/Counting";
 import {Results} from "../Results/Results";
-import {calcExamples} from "../../utils/calculations";
+import {calcExamples, getCurrentTime} from "../../utils/utils";
 import {useSelector, useDispatch} from "react-redux";
 import {setCalculations, hasEmptyInputs} from "../../store/actions/calculations";
 import {
-    setCorrectAnswers,
+    setCorrectAnswers, setFinishTime,
     setIncorrectAnswers,
     setIsResultsShowed,
-    setIsResultsTouched
+    setIsResultsTouched, setStartTime
 } from '../../store/actions/results';
 
 import {ICalculationList, ILoginState, ICalculationsState, IResultsState} from "../../interfaces";
@@ -31,6 +31,10 @@ const CountingList: React.FC = () => {
         dispatch(setCalculations(calcExamples(10)));
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(setStartTime(getCurrentTime()))
+    }, [dispatch])
+
     const userAnswerChecker = () => {
         const noEmptyInputs = calculations.every((item) => item.userAnswer !== '');
 
@@ -38,6 +42,7 @@ const CountingList: React.FC = () => {
             dispatch(hasEmptyInputs(true));
             dispatch(setIsResultsShowed(false));
         } else {
+            dispatch(setFinishTime(getCurrentTime()));
             dispatch(hasEmptyInputs(false));
             dispatch(setIsResultsShowed(true));
             dispatch(setIsResultsTouched(true));

@@ -1,4 +1,6 @@
-export const setCalculations = (calculations: any[]) => { // TODO Убрать any
+import {ICalculation} from "../../interfaces";
+
+export const setCalculations = (calculations: ICalculation[]) => {
     return {
         type: "SET_CALCULATIONS",
         calculations

@@ -23,7 +23,10 @@ export interface IResultsState {
         correctAnswers: number,
         incorrectAnswers: number,
         isResultsShowed: boolean,
-        isResultsTouched: boolean
+        isResultsTouched: boolean,
+        startTime: number,
+        finishTime: number,
+        userPoints: number
     }
 }
 

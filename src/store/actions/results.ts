@@ -25,3 +25,24 @@ export const setIsResultsTouched = (isResultsTouched: boolean) => {
         isResultsTouched
     }
 }
+
+export const setStartTime = (startTime: number) => {
+    return {
+        type: "SET_START_TIME",
+        startTime
+    }
+}
+
+export const setFinishTime = (finishTime: number) => {
+    return {
+        type: "SET_FINISH_TIME",
+        finishTime
+    }
+}
+
+export const setUserPoints = (userPoints: number) => {
+    return {
+        type: "SET_USER_POINTS",
+        userPoints
+    }
+}

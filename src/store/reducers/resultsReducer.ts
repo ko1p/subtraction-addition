@@ -1,3 +1,5 @@
+import {IUsersResults} from "../../interfaces";
+
 const SET_CORRECT_ANSWERS_NUM = 'SET_CORRECT_ANSWERS_NUM';
 const SET_INCORRECT_ANSWERS_NUM = 'SET_INCORRECT_ANSWERS_NUM';
 const SET_IS_RESULTS_SHOWED = 'SET_IS_RESULTS_SHOWED';
@@ -51,7 +53,7 @@ type SetIsResultsTableShowed = {
 
 type SetTopResults = {
     type: typeof SET_TOP_RESULTS
-    data: any[] // TODO переделать
+    data: IUsersResults[]
 }
 
 type SetIsUserResultAdd = {

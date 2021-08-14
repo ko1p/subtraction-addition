@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-// Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
     apiKey: "AIzaSyDNAhbJCtcmv6WlqvsxrIJVwBL56MEAKCA",
     authDomain: "math-results.firebaseapp.com",
@@ -14,22 +13,3 @@ firebase.initializeApp({
 const db = firebase.firestore();
 
 export default db;
-
-// export const Results: React.FC = () => {
-//     db.collection("results").get().then((querySnapshot) => {
-//         querySnapshot.forEach((doc) => {
-//             console.log(doc.data());
-//         });
-//     });
-
-// db.collection("users").add({
-//     first: "Ada",
-//     last: "Lovelace",
-//     born: 1815
-// })
-//     .then((docRef) => {
-//         console.log("Document written with ID: ", docRef.id);
-//     })
-//     .catch((error) => {
-//         console.error("Error adding document: ", error);
-//     });

@@ -1,8 +1,12 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {setIsResultsShowed, setIsUserResultAdd, setUserPoints, toggleResultsTable} from '../../store/actions/results';
+import {
+    sendResultToRating,
+    setIsResultsShowed,
+    setUserPoints,
+    toggleResultsTable
+} from '../../store/actions/results';
 import styles from './UserResults.module.css';
-import db from '../../firebase/firebase';
 
 import {ILoginState, IResultsState} from '../../interfaces'
 import {pointsCounter} from "../../utils/utils";
@@ -21,17 +25,8 @@ export const UserResults: React.FC = () => {
         dispatch(setIsResultsShowed(false));
     }
 
-    const addResultToRating = () => { // TODO: вынести в экшены
-        db.collection("results").add({
-            name: userName,
-            result: userPoints
-        })
-            .then((docRef) => {
-                dispatch(setIsUserResultAdd(true))
-            })
-            .catch((error) => {
-                dispatch(setIsUserResultAdd(false))
-            });
+    const addResultToRating = () => {
+        dispatch(sendResultToRating(userName, userPoints))
     }
 
     const showResultsTable = () => {

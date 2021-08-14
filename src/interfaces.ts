@@ -45,3 +45,8 @@ export interface ICountingProps {
     key: string,
     data: ICalculation,
 }
+
+export interface IUsersResults {
+    name: string,
+    result: number
+}

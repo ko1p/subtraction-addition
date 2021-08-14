@@ -1,5 +1,6 @@
 import db from "../../firebase/firebase";
 import {Dispatch} from 'redux';
+import {IUsersResults} from "../../interfaces";
 
 export const setCorrectAnswers = (correctAnswers: number) => {
     return {
@@ -65,12 +66,12 @@ export const setTopResults = (data: any[]) => { // TODO добавить тип
 }
 
 export const getTopResults = () => {
-    return async (dispatch: Dispatch) => { //TODO подумать
+    return async (dispatch: Dispatch) => {
         try {
             db.collection("results").get().then((querySnapshot) => {
-                const data: any[] = []; // TODO: Убрать, сделать интерфейс
+                const data: IUsersResults[] = [];
                 querySnapshot.forEach((doc) => {
-                    data.push(doc.data())
+                    data.push(doc.data() as IUsersResults)
                 });
                 const sortedTopTen = data.sort((a, b) => b.result - a.result).slice(0, 10);
                 dispatch(setTopResults(sortedTopTen))
@@ -85,5 +86,24 @@ export const setIsUserResultAdd = (isUserResultAdd: boolean) => {
     return {
         type: "SET_IS_USER_RESULT_ADD",
         isUserResultAdd
+    }
+}
+
+export const sendResultToRating = (userName: string, userPoints: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            db.collection("results").add({
+                name: userName,
+                result: userPoints
+            })
+                .then((docRef) => {
+                    dispatch(setIsUserResultAdd(true))
+                })
+                .catch((error) => {
+                    dispatch(setIsUserResultAdd(false))
+                });
+        } catch (e) {
+            console.log(e, "произошла ошибка при отправке ваших результатов")
+        }
     }
 }

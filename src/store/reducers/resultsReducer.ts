@@ -5,6 +5,9 @@ const SET_IS_RESULTS_TOUCHED = 'SET_IS_RESULTS_TOUCHED';
 const SET_START_TIME = 'SET_START_TIME';
 const SET_FINISH_TIME = 'SET_FINISH_TIME';
 const SET_USER_POINTS = 'SET_USER_POINTS';
+const SET_IS_RESULT_TABLE_SHOWED = 'SET_IS_RESULT_TABLE_SHOWED';
+const SET_TOP_RESULTS = 'SET_TOP_RESULTS';
+const SET_IS_USER_RESULT_ADD = 'SET_IS_USER_RESULT_ADD';
 
 type SetCorrectAnswers = {
     type: typeof SET_CORRECT_ANSWERS_NUM
@@ -41,7 +44,22 @@ type SetUserPoints = {
     userPoints: number
 }
 
-type ActionTypes = SetCorrectAnswers | SetIncorrectAnswers | SetIsResultsShowed | SetIsResultsTouched | SetStartTime | SetFinishTime | SetUserPoints
+type SetIsResultsTableShowed = {
+    type: typeof SET_IS_RESULT_TABLE_SHOWED
+    isResultsTableShowed: boolean
+}
+
+type SetTopResults = {
+    type: typeof SET_TOP_RESULTS
+    data: any[] // TODO переделать
+}
+
+type SetIsUserResultAdd = {
+    type: typeof SET_IS_USER_RESULT_ADD
+    isUserResultAdd: boolean
+}
+
+type ActionTypes = SetCorrectAnswers | SetIncorrectAnswers | SetIsResultsShowed | SetIsResultsTouched | SetStartTime | SetFinishTime | SetUserPoints | SetIsResultsTableShowed | SetTopResults | SetIsUserResultAdd
 
 const initialState = {
     correctAnswers: 0,
@@ -50,7 +68,10 @@ const initialState = {
     isResultsTouched: false,
     startTime: null,
     finishTime: null,
-    userPoints: null
+    userPoints: null,
+    isResultsTableShowed: false,
+    topResults: [],
+    isUserResultAdd: false
 }
 
 export default function resultsReducer(state = initialState, action: ActionTypes) {
@@ -95,6 +116,24 @@ export default function resultsReducer(state = initialState, action: ActionTypes
             return {
                 ...state,
                 userPoints: action.userPoints
+            }
+        }
+        case SET_IS_RESULT_TABLE_SHOWED: {
+            return {
+                ...state,
+                isResultsTableShowed: action.isResultsTableShowed
+            }
+        }
+        case SET_TOP_RESULTS: {
+            return {
+                ...state,
+                topResults: action.data
+            }
+        }
+        case SET_IS_USER_RESULT_ADD: {
+            return {
+                ...state,
+                isUserResultAdd: action.isUserResultAdd
             }
         }
         default:

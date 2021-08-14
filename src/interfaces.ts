@@ -26,7 +26,10 @@ export interface IResultsState {
         isResultsTouched: boolean,
         startTime: number,
         finishTime: number,
-        userPoints: number
+        userPoints: number,
+        isResultsTableShowed: boolean,
+        topResults: any[] // TODO создать тип,
+        isUserResultAdd: boolean
     }
 }
 

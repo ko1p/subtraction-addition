@@ -27,10 +27,10 @@ export const Counting: React.FC<ICountingProps> = ({data}) => {
     }
 
     return (
-        <>
+        <div className={styles.container}>
             <span className={styles.counting}>{data.calculation}</span>
             <input className={classes.join(' ')} type="number"
                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeHandler(e)}/>
-        </>
+        </div>
     )
 }

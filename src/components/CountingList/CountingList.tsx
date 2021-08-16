@@ -60,7 +60,7 @@ const CountingList: React.FC = () => {
                 inCorrectAnswersCounter += 1;
             }
         });
-        dispatch(setCorrectAnswers(correctAnswersCounter)); // TODO подумать об оптимизации
+        dispatch(setCorrectAnswers(correctAnswersCounter));
         dispatch(setIncorrectAnswers(inCorrectAnswersCounter));
     };
 

@@ -2,7 +2,7 @@
     outline: 1px solid grey;
     margin: 5px 0;
     max-width: 300px;
-    width: 70%;
+    width: 65%;
     text-align: center;
     font-family: 'Roboto Slab', serif;
 }
@@ -18,4 +18,11 @@
 .counting {
     font-family: 'Roboto Slab', serif;
     font-weight: bold;
+    margin: 0 5px 0 0;
+    padding: 5px 0 0 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
 }

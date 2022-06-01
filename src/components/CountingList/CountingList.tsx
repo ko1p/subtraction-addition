@@ -70,7 +70,7 @@ const CountingList: React.FC = () => {
                 Сложение и вычитание с чисел от 0 до 100.
             </h2>
             <p className={styles.subtitle}>
-                Решите и укажите ответы для каждого из 10 примеров.
+                Укажите ответы для каждого из 10 примеров.
             </p>
             {calculations.map((item, index) => (
                 <Counting key={`counting-${index}`} data={item}/>

@@ -14,12 +14,12 @@
 
 .title {
     margin: 0;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .subtitle {
-    margin: 10px 0;
-    font-size: 15px;
+    margin: 5px 0;
+    font-size: 12px;
 }
 
 .calculations {
@@ -28,6 +28,7 @@
 
 .button {
     width: 90%;
+    max-width: 250px;
     margin: 10px 0;
     color: #fff;
     background-color: #0d6efd;

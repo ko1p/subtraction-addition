@@ -5,6 +5,7 @@
     width: 65%;
     text-align: center;
     font-family: 'Roboto Slab', serif;
+    border: none;
 }
 
 .input_correct {
@@ -24,5 +25,7 @@
 
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    max-width: 250px;
+    width: 100%;
 }

@@ -1,26 +1,20 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import styles from './App.module.css';
-import CountingList from '../CountingList/CountingList';
-import Login from '../Login/Login';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import styles from "./App.module.css";
+// import CountingList from '../CountingList/CountingList';
+// import Login from '../Login/Login';
 import { PageNotFound } from '../PageNotFound/PageNotFound';
 
 const App: React.FC = () => {
   return (
     <div className={styles.app}>
-      <Router>
-        <Switch>
-          <Route path="/" exact><Login /></Route>
-          <Route path="/counting" exact><CountingList /></Route>
-          <Route path="*" component={PageNotFound} />
-        </Switch>
-      </Router>
+      <Routes>
+        <Route path="/" element={<h1>Login</h1>} />
+        <Route path="/counting" element={<h1>Counting</h1>} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,3 @@
 import React from "react";
 
-export const PageNotFound: React.FC = () => {
-    return (
-        <h2>Такой страницы нет :(</h2>
-    )
-}
+export const PageNotFound: React.FC = () => (<h2>Такой страницы нет :(</h2>);

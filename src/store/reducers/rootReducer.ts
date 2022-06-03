@@ -3,9 +3,9 @@
 // import calculationReducer from "./calculationsReducer";
 // import resultsReducer from './resultsReducer';
 import {combineReducers} from "@reduxjs/toolkit";
-import calculationsReducer from "./calculationsReducer";
-import loginReducer from "./loginReducer";
-import resultsReducer from "./resultsReducer";
+import calculationsReducer from "./calculationsSlice";
+import loginReducer from "./loginSlice";
+import resultsReducer from "./resultsSlice";
 
 // export default combineReducers({
 //     login: loginReducer,

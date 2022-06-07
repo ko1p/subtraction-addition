@@ -19,15 +19,12 @@ export const loginSlice = createSlice({
     initialState,
     reducers: {
         setUserLogin(state, action: PayloadAction<string>) {
-            console.log(action)
             state.login = action.payload
         },
         setIsUserLoginValid(state, action: PayloadAction<boolean>) {
-            console.log(action.payload)
             state.isValid = action.payload
         },
         setIsUserLoginTouched(state, action: PayloadAction<boolean>) {
-            console.log(action.payload)
             state.isTouched = action.payload
         }
     }

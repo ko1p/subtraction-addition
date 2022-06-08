@@ -1,4 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {getTopResults} from "../actions/resultsAction";
+import {IUsersResults} from "../../interfaces";
 
 const initialState: resultsState = {
     correctAnswers: 0,
@@ -21,8 +23,8 @@ interface resultsState  {
     startTime: null | number,
     finishTime: null | number,
     userPoints: null | number,
-    isResultsTableShowed: false,
-    topResults: [],
+    isResultsTableShowed: boolean,
+    topResults: IUsersResults[],
     isUserResultAdd: boolean
 }
 
@@ -48,9 +50,14 @@ export const resultsSlice = createSlice({
         setNumberOfIncorrectAnwsers(state, action: PayloadAction<number>) {
             state.incorrectAnswers = action.payload;
         },
+        setIsResultsTableShowed(state, action: PayloadAction<boolean>) {
+            state.isResultsTableShowed = action.payload;
+        }
     },
     extraReducers: {
-
+        [getTopResults.fulfilled.type]: (state, action: PayloadAction<IUsersResults[]>) => {
+            state.topResults = action.payload;
+        },
     }
 })
 

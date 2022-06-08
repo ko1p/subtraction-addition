@@ -1,4 +1,3 @@
-export {}
 // import React, {useEffect} from 'react';
 // import {useSelector, useDispatch} from 'react-redux';
 // import {
@@ -8,10 +7,10 @@ export {}
 //     toggleResultsTable
 // } from '../../store/actions/results';
 // import styles from './UserResults.module.css';
-
+//
 // import {ILoginState, IResultsState} from '../../interfaces'
 // import {pointsCounter} from "../../utils/utils";
-
+//
 // export const UserResults: React.FC = () => {
 //     const dispatch = useDispatch();
 //     const userName = useSelector((state: ILoginState) => state.login.login);
@@ -21,23 +20,23 @@ export {}
 //     const finishTime = useSelector((state: IResultsState) => state.results.finishTime);
 //     const userPoints = useSelector((state: IResultsState) => state.results.userPoints);
 //     const isResultAdd = useSelector((state: IResultsState) => state.results.isUserResultAdd);
-
+//
 //     const onClickHandler = () => {
 //         dispatch(setIsResultsShowed(false));
 //     }
-
+//
 //     const addResultToRating = () => {
 //         dispatch(sendResultToRating(userName, userPoints))
 //     }
-
+//
 //     const showResultsTable = () => {
 //         dispatch(toggleResultsTable(true))
 //     }
-
+//
 //     useEffect(() => {
 //         dispatch(setUserPoints(pointsCounter(startTime, finishTime, correctAnswersNum)))
 //     }, [dispatch, startTime, finishTime, correctAnswersNum])
-
+//
 //     return (
 //         <div className={styles.results}>
 //             <h2 className={styles.heading}>{userName} - Вы молодец!</h2>

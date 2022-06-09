@@ -1,51 +1,43 @@
 import React, {useEffect} from "react";
 import {useNavigate} from "react-router";
-// import { Navigate } from "react-router-dom";
 import styles from "./CountingList.module.css";
 import {Counting} from "../Counting/Counting";
 // import {Results} from "../Results/Results";
 import {calcExamples, getCurrentTime} from "../../utils/utils";
-// import {useSelector} from "react-redux";
-// import {setCalculations, hasEmptyInputs} from "../../store/actions/calculations";
-// import {
-//     setCorrectAnswers, setFinishTime,
-//     setIncorrectAnswers,
-//     setIsResultsShowed,
-//     setIsResultsTouched, setStartTime
-// } from '../../store/actions/results';
-import { calculationsSlice } from "../../store/reducers/calculationsSlice";
-import { resultsSlice } from "../../store/reducers/resultsSlice";
+import {calculationsSlice} from "../../store/reducers/calculationsSlice";
+import {resultsSlice} from "../../store/reducers/resultsSlice";
 
-import {ICalculationList, ILoginState, ICalculationsState, IResultsState} from "../../interfaces";
-import { useAppSelector, useAppDispatch } from "../../hooks/redux";
+import {useAppSelector, useAppDispatch} from "../../hooks/redux";
 
 const CountingList: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { login } = useAppSelector(store => store.login);
-    const { calculationsList: calculations, hasEmptyInputs: isInputsEmpty  } = useAppSelector(store => store.calculations);
-    const { isResultsShowed } = useAppSelector(store => store.results);
-    const { setCalculations, setIsAllInputsFilled } = calculationsSlice.actions;
-    const { setStartTime, setIsResultsShowed, setFinishTime, setIsResultsTouched, setNumberOfIncorrectAnwsers, setNumberOfCorrectAnwsers } = resultsSlice.actions;
-    // const login = useSelector((state: ILoginState) => state.login.login);
-    // const calculations = useSelector((state: ICalculationList) => state.calculations.calculationsList);
-    // const isInputsEmpty = useSelector((state: ICalculationsState) => state.calculations.hasEmptyInputs);
-    // const isResultsShowed = useSelector((state: IResultsState) => state.results.isResultsShowed);
-
+    const {login} = useAppSelector(store => store.login);
+    const {calculationsList: calculations, hasEmptyInputs: isInputsEmpty} = useAppSelector(store => store.calculations);
+    const {isResultsShowed} = useAppSelector(store => store.results);
+    const {setCalculations, setIsAllInputsFilled} = calculationsSlice.actions;
+    const {
+        setStartTime,
+        setIsResultsShowed,
+        setFinishTime,
+        setIsResultsTouched,
+        setNumberOfIncorrectAnwsers,
+        setNumberOfCorrectAnwsers
+    } = resultsSlice.actions;
 
     useEffect(() => {
-    if (login === '') {
-         navigate('/');
+        if (login === '') {
+            navigate('/');
         }
-    }, [])
+    }, [login, navigate])
 
     useEffect(() => {
         dispatch(setCalculations(calcExamples(10)));
-    }, [dispatch]);
+    }, [dispatch, setCalculations]);
 
     useEffect(() => {
         dispatch(setStartTime(getCurrentTime()))
-    }, [dispatch])
+    }, [dispatch, setStartTime])
 
     const userAnswerChecker = () => {
         const noEmptyInputs = calculations.every((item) => item.userAnswer !== '');

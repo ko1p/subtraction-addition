@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getTopResults} from "../actions/resultsAction";
+import {getTopResults} from "../actions/results";
 import {IUsersResults} from "../../interfaces";
 
 const initialState: resultsState = {

@@ -1,5 +1,4 @@
 import React from "react";
-// import {setUserAnswer} from '../../store/actions/calculations';
 import styles from './Counting.module.css';
 
 import {ICountingProps} from "../../interfaces";
@@ -8,9 +7,9 @@ import {calculationsSlice} from "../../store/reducers/calculationsSlice";
 
 export const Counting: React.FC<ICountingProps> = ({data}) => {
     const dispatch = useAppDispatch();
-    const { isResultsTouched } = useAppSelector(store => store.results)
+    const {isResultsTouched} = useAppSelector(store => store.results)
     const isCorrectAnswer = data.isCorrect;
-    const { setUserAnswer } = calculationsSlice.actions;
+    const {setUserAnswer} = calculationsSlice.actions;
 
     let classes = [styles.input];
 

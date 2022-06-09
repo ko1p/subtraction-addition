@@ -1,5 +1,4 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 import styles from './Results.module.css';
 // import {ResultsTable} from "../ResultsTable/ResultsTable";
 // import {UserResults} from "../UserResults/UserResults";

@@ -1,6 +1,5 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-// import {setUserLogin, setIsLoginValid, setIsLoginTouched} from '../../store/actions/login';
 import styles from './Login.module.css';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { loginSlice } from "../../store/reducers/loginSlice";

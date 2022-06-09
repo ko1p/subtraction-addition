@@ -1,18 +1,13 @@
 import React, {useEffect} from 'react';
 import styles from './ResultsTable.module.css';
-// import {getTopResults, toggleResultsTable} from "../../store/actions/results";
-// import {useDispatch, useSelector} from "react-redux";
-// import {IResultsState} from "../../interfaces";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {resultsSlice} from "../../store/reducers/resultsSlice";
-import { getTopResults } from '../../store/actions/resultsAction';
+import {getTopResults} from '../../store/actions/results';
 
 export const ResultsTable: React.FC = () => {
-    // const dispatch = useDispatch();
-    // const topResults = useSelector((state: IResultsState) => state.results.topResults);
     const dispatch = useAppDispatch();
-    const { topResults } = useAppSelector(state => state.results)
-    const { setIsResultsTableShowed } = resultsSlice.actions;
+    const {topResults} = useAppSelector(state => state.results)
+    const {setIsResultsTableShowed} = resultsSlice.actions;
 
     const showResultsTable = () => {
         dispatch(setIsResultsTableShowed(false))
@@ -45,7 +40,7 @@ export const ResultsTable: React.FC = () => {
                     </tbody>
                 </table>
                 :
-                <div className={styles.lds_dual_ring} />
+                <div className={styles.lds_dual_ring}/>
             }
             <button className={styles.button} onClick={showResultsTable}>обратно</button>
         </div>

@@ -19,4 +19,23 @@ export const getTopResults = createAsyncThunk(
     }
 )
 
-// TODO Переименовать файл после рефакторинга
+export const sendResultToRating = createAsyncThunk(
+    'results/sendResultToRating',
+    async ({userName, userPoints}: {userName: string, userPoints: number | null}, thunkAPI) => {
+        try {
+            db.collection("results").add({
+                name: userName,
+                result: userPoints
+            })
+                // .then((docRef) => {
+                //     return dispatch(setIsUserResultAdd(true))
+                // })
+                // .catch((error) => {
+                //     dispatch(setIsUserResultAdd(false))
+                // });
+        } catch (e) {
+            return thunkAPI.rejectWithValue("При передаче результатов пользователя на сервер произошла ошибка.")
+        }
+    }
+)
+

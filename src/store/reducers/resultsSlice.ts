@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getTopResults} from "../actions/results";
+import {getTopResults, sendResultToRating} from "../actions/results";
 import {IUsersResults} from "../../interfaces";
 
 const initialState: resultsState = {
@@ -52,12 +52,22 @@ export const resultsSlice = createSlice({
         },
         setIsResultsTableShowed(state, action: PayloadAction<boolean>) {
             state.isResultsTableShowed = action.payload;
+        },
+        setUserPoints(state, action: PayloadAction<number>) {
+            state.userPoints = action.payload
         }
     },
     extraReducers: {
         [getTopResults.fulfilled.type]: (state, action: PayloadAction<IUsersResults[]>) => {
             state.topResults = action.payload;
         },
+        [sendResultToRating.fulfilled.type]: (state) => {
+            state.isUserResultAdd = true;
+        },
+        [sendResultToRating.rejected.type]: (state, action: PayloadAction<string>) => {
+            state.isUserResultAdd = false;
+        },
+
     }
 })
 

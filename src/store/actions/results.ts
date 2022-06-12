@@ -6,7 +6,7 @@ export const getTopResults = createAsyncThunk(
     'results/getTopResults',
     async (_, thunkAPI) => {
         try {
-            db.collection("results").get().then((querySnapshot) => {
+            return db.collection("results").get().then((querySnapshot) => {
                 const data: IUsersResults[] = [];
                 querySnapshot.forEach((doc) => {
                     data.push(doc.data() as IUsersResults)
@@ -27,12 +27,6 @@ export const sendResultToRating = createAsyncThunk(
                 name: userName,
                 result: userPoints
             })
-                // .then((docRef) => {
-                //     return dispatch(setIsUserResultAdd(true))
-                // })
-                // .catch((error) => {
-                //     dispatch(setIsUserResultAdd(false))
-                // });
         } catch (e) {
             return thunkAPI.rejectWithValue("При передаче результатов пользователя на сервер произошла ошибка.")
         }

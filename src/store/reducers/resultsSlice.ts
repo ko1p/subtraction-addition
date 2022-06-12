@@ -61,10 +61,10 @@ export const resultsSlice = createSlice({
         [getTopResults.fulfilled.type]: (state, action: PayloadAction<IUsersResults[]>) => {
             state.topResults = action.payload;
         },
-        [sendResultToRating.fulfilled.type]: (state) => {
+        [sendResultToRating.fulfilled.type]: state => {
             state.isUserResultAdd = true;
         },
-        [sendResultToRating.rejected.type]: (state, action: PayloadAction<string>) => {
+        [sendResultToRating.rejected.type]: state => {
             state.isUserResultAdd = false;
         },
 

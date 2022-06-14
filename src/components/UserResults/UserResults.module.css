@@ -30,6 +30,11 @@
 .button[disabled] {
     background-color: #209300;
     border-color: #209300;
+    cursor: not-allowed;
+}
+
+.button[disabled]:hover {
+    opacity: .7;
 }
 
 .button:hover {

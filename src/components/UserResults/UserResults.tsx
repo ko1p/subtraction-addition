@@ -44,8 +44,7 @@ export const UserResults: React.FC = () => {
             <p>Вы отвечали: {Math.floor((finishTime! - startTime!) / 1000)} сек.</p>
             <p>и набрали: {userPoints} очков</p>
             <p className={styles.link} onClick={showResultsTable}>🏆 посмотреть турнирную таблицу 🏆</p>
-            <button className={styles.button} onClick={addResultToRating} disabled={isResultAdd}>Добавить результат в
-                турнирную таблицу
+            <button className={styles.button} onClick={addResultToRating} disabled={isResultAdd}>{isResultAdd ? 'Результат успешно добавлен' : 'Добавить результат в турнирную таблицу'}
             </button>
             <button className={styles.button} onClick={onClickHandler}>Вернуться к подсчётам</button>
         </div>

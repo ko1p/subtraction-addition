@@ -15,7 +15,7 @@ const initialState: resultsState = {
     isUserResultAdd: false
 }
 
-interface resultsState  {
+interface resultsState {
     correctAnswers: number,
     incorrectAnswers: number,
     isResultsShowed: boolean,

@@ -1,14 +1,14 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import styles from './Login.module.css';
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { loginSlice } from "../../store/reducers/loginSlice";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {loginSlice} from "../../store/reducers/loginSlice";
 
 const Login: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const { login, isTouched, isValid } = useAppSelector(state => state.login);
-    const { setUserLogin, setIsUserLoginTouched, setIsUserLoginValid } = loginSlice.actions;
+    const {login, isTouched, isValid} = useAppSelector(state => state.login);
+    const {setUserLogin, setIsUserLoginTouched, setIsUserLoginValid} = loginSlice.actions;
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const userLogin = e.target.value;
@@ -39,7 +39,8 @@ const Login: React.FC = () => {
                 <div className={styles.error_ontainer}>
                     {!isValid && isTouched && <span className={styles.error}>Имя должно быть длинее 2х символов.</span>}
                 </div>
-                <input className={styles.input} onChange={e => onChangeHandler(e)} value={login} type="text" name="login" placeholder="Имя"/>
+                <input className={styles.input} onChange={e => onChangeHandler(e)} value={login} type="text"
+                       name="login" placeholder="Имя"/>
                 <button className={styles.button} type="submit" disabled={!isValid}>Войти</button>
             </form>
         </div>

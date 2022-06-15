@@ -1,6 +1,4 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-// import {fetchAllUsers} from "../actions/UsersAction";
-// import {IUser} from "../../models/users";
 
 interface LoginState {
     login: string,

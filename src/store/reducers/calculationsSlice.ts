@@ -29,13 +29,11 @@ export const calculationsSlice = createSlice({
                 }
                 return calcItem
             })
-                // @ts-ignore
+            // @ts-ignore
             state.calculationsList = newCalculationList; // TODO
         },
     },
-    extraReducers: {
-
-    }
+    extraReducers: {}
 })
 
 export default calculationsSlice.reducer;

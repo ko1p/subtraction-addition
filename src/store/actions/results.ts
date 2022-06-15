@@ -1,5 +1,5 @@
 import db from "../../firebase/firebase";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import {createAsyncThunk} from "@reduxjs/toolkit";
 import {IUsersResults} from "../../interfaces";
 
 export const getTopResults = createAsyncThunk(
@@ -21,7 +21,7 @@ export const getTopResults = createAsyncThunk(
 
 export const sendResultToRating = createAsyncThunk(
     'results/sendResultToRating',
-    async ({userName, userPoints}: {userName: string, userPoints: number | null}, thunkAPI) => {
+    async ({userName, userPoints}: { userName: string, userPoints: number | null }, thunkAPI) => {
         try {
             db.collection("results").add({
                 name: userName,

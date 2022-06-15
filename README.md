@@ -12,8 +12,8 @@
 ### Используемый стек:
 
 - TypeScript
-- React (functional components) + hooks
-- Redux
+- React FC + hooks
+- Redux Toolkit
 - CSS-modules
 
 ### Как развернуть проект:

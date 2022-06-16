@@ -15,22 +15,21 @@ export const calculationsSlice = createSlice({
     name: 'calculations',
     initialState,
     reducers: {
-        setCalculations(state, action: PayloadAction<any>) { // TODO Создать тип
+        setCalculations(state, action: PayloadAction<ICalculation[]>) {
             state.calculationsList = action.payload
         },
         setIsAllInputsFilled(state, action: PayloadAction<boolean>) {
             state.hasEmptyInputs = action.payload
         },
         setUserAnswer(state, action: PayloadAction<any>) {
-            const newCalculationList = state.calculationsList.map((calcItem: any) => { // TODO убрать эни
+            const newCalculationList = state.calculationsList.map((calcItem: ICalculation) => {
                 if (calcItem.calculation === action.payload.calculation) {
                     calcItem.userAnswer = action.payload.userAnswer;
                     calcItem.isCorrect = action.payload.isCorrect
                 }
                 return calcItem
             })
-            // @ts-ignore
-            state.calculationsList = newCalculationList; // TODO
+            state.calculationsList = newCalculationList;
         },
     },
     extraReducers: {}

@@ -41,6 +41,10 @@
     opacity: 1;
 }
 
+.info {
+    text-align: center;
+}
+
 .info_correct {
     color: green;
 }

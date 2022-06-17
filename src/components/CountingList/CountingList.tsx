@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {useNavigate} from "react-router";
 import styles from "./CountingList.module.css";
 import {Counting} from "../Counting/Counting";
-import {Results} from "../Results/Results";
 import {calcExamples, getCurrentTime} from "../../utils/utils";
 import {calculationsSlice} from "../../store/reducers/calculationsSlice";
 import {resultsSlice} from "../../store/reducers/resultsSlice";
@@ -14,7 +13,6 @@ const CountingList: React.FC = () => {
     const dispatch = useAppDispatch();
     const {login} = useAppSelector(store => store.login);
     const {calculationsList: calculations, hasEmptyInputs: isInputsEmpty} = useAppSelector(store => store.calculations);
-    const {isResultsShowed} = useAppSelector(store => store.results);
     const {setCalculations, setIsAllInputsFilled} = calculationsSlice.actions;
     const {
         setStartTime,
@@ -83,9 +81,6 @@ const CountingList: React.FC = () => {
                 Далее
             </button>
             {isInputsEmpty && <span className={styles.error}>Заполните все поля</span>}
-            {!isInputsEmpty && isResultsShowed && (
-                <Results/>
-            )}
         </div>
     );
 };
